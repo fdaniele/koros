@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9093
+    security:
+      protocol: SSL
+    ssl:
+      key-store-location: file:/etc/kafka/secrets/kafka.server.keystore.jks
+      key-store-password: k0r0s2025!
+      key-password: k0r0s2025!
+      trust-store-location: file:/etc/kafka/secrets/kafka.server.truststore.jks
+      trust-store-password: trustk0r0s2025!
+    consumer:
+      group-id: koros-verifier-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/koros
+middleware:
+  topic:
+    out: service-exchange-messages-out
+    invalid: service-exchange-messages-invalid
+    in: service-exchange-messages-in

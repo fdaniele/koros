@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  kafka:
+    bootstrap-servers: kafka:9093
+    security:
+      protocol: SSL
+    ssl:
+      key-store-location: file:/etc/kafka/secrets/kafka.server.keystore.jks
+      key-store-password: k0r0s2025!
+      key-password: k0r0s2025!
+      trust-store-location: file:/etc/kafka/secrets/kafka.server.truststore.jks
+      trust-store-password: trustk0r0s2025!
+    consumer:
+      group-id: koros-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      properties:
+        max:
+          request:
+            size=1048576:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    properties:
+      ssl.endpoint.identification.algorithm: ""
