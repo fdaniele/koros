@@ -1,0 +1,1 @@
+apache-jmeter-5.6.3\bin\jmeter.bat -n -t jmeter_test_koros_plan.jmx -l results.jtl -e -o report
