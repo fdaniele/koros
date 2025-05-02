@@ -1,0 +1,1 @@
+docker exec -it koros-kafka-1 
