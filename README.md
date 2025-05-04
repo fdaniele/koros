@@ -100,17 +100,17 @@ Test di carico definiti nel file:
 koros.jmx
 ```
 
-Esecuzione CLI:
+Esecuzione CLI (richiede il download di jmeter https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip):
 
 ```bash
-jmeter -n -t koros.jmx -l report.jtl -e -o report/
+jmeter.bat -n -t jmeter_test_koros_plan.jmx -l results.jtl -e -o report
 ```
 
 ---
 
 ## Monitoraggio & Troubleshooting
 
-- Log real-time:
+- Log real-time (In produzione si potrebbe pensare all'implementazione di uno stack ELK):
 
 ```bash
 docker-compose logs -f producer
